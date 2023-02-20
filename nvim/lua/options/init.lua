@@ -30,7 +30,7 @@ vim.api.nvim_exec(
 	false
 )
 vim.opt.conceallevel = 2
-vim.opt.concealcursor = 'n'
+-- vim.opt.concealcursor = 'n'
 vim.opt.signcolumn = 'no'
 
 -- auto-format
