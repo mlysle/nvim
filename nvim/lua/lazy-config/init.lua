@@ -49,8 +49,11 @@ return require('lazy').setup({
 	'benknoble/vim-racket',
 	'olical/conjure',
 	'gpanders/nvim-parinfer',
-	'epwalsh/obsidian.nvim',
 	'jakewvincent/mkdnflow.nvim',
 	'onsails/lspkind.nvim',
 	'tzachar/local-highlight.nvim',
+	{ 'echasnovski/mini.nvim', version = false },
+	'ziontee113/neo-minimap',
+	'glacambre/firenvim',
+	'stevearc/oil.nvim',
 })
