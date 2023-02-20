@@ -1,6 +1,5 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
-
 vim.keymap.set("n", "<Leader>pv", vim.cmd.Ex)
 vim.keymap.set('n', '<leader>e', '<cmd>Ex<CR>')
 
@@ -19,3 +18,5 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
 
 vim.keymap.set("n", "<C-Up>", ":Neorg journal tomorrow<CR>")
 vim.keymap.set("n", "<C-Down>", ":Neorg journal yesterday<CR>")
+
+vim.keymap.set("n", "<F5>", ":!Rscript -e \"rmarkdown::render('%')\"<CR>")
