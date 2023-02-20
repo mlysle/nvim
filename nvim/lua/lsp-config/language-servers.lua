@@ -34,7 +34,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('x', '<F4>', vim.lsp.buf.range_code_action, bufopts)
 end
 
-lspconfig['sumneko_lua'].setup {
+lspconfig['lua_ls'].setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
