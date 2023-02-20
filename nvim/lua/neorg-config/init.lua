@@ -35,7 +35,8 @@ require('neorg').setup {
 				workspaces = {
 					notes = "~/doc/neorg/notes",
 					gtd = "~/doc/neorg/gtd",
-				}
+				},
+				default_workspace = "notes",
 			}
 		}
 	}
