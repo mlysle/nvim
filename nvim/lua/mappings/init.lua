@@ -20,3 +20,4 @@ vim.keymap.set("n", "<C-Up>", ":Neorg journal tomorrow<CR>")
 vim.keymap.set("n", "<C-Down>", ":Neorg journal yesterday<CR>")
 
 vim.keymap.set("n", "<F5>", ":!Rscript -e \"rmarkdown::render('%')\"<CR>")
+vim.keymap.set("n", "--", require("oil").open, { desc = "Open parent directory" })
