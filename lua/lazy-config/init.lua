@@ -47,7 +47,7 @@ return require('lazy').setup({
 	'jose-elias-alvarez/null-ls.nvim',
 	-- for SICP
 	'benknoble/vim-racket',
-	'olical/conjure',
+	'Olical/conjure',
 	'gpanders/nvim-parinfer',
 	'onsails/lspkind.nvim',
 	{ 'echasnovski/mini.nvim', version = false },
@@ -55,4 +55,5 @@ return require('lazy').setup({
 	'glacambre/firenvim',
 	'stevearc/oil.nvim',
 	'HiPhish/nvim-ts-rainbow2',
+	'udayvir-singh/tangerine.nvim',
 })
