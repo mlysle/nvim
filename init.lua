@@ -12,11 +12,9 @@ require('dial-config')
 require('luasnip-config')
 require('null-ls-config')
 require('neo-minimap-config')
---require('oil-config')
+require('oil-config')
 require('ts-rainbow-config')
 require('mappings')
 require('mappings')
 -- vim.g["aniseed#env"] = { module = "init", compile = true }
 -- require('aniseed.env').init()
-
-require "tangerine".setup {}
