@@ -1,22 +1,23 @@
-require('options')
-require('lazy-config')
-require('colors')
-require('treesitter-config')
-require('mason-config')
-require('lsp-config.language-servers')
-require('cmp-config')
-require('neorg-config')
-require('telescope-config')
-require('alpha-config')
-require('dial-config')
-require('luasnip-config')
-require('null-ls-config')
-require('neo-minimap-config')
---require('oil-config')
-require('ts-rainbow-config')
-require('mappings')
-require('mappings')
--- vim.g["aniseed#env"] = { module = "init", compile = true }
--- require('aniseed.env').init()
+local function bootstrap(url, ref)
+	local name = url:gsub(".*/", "")
+	local path = vim.fn.stdpath("data") .. "/lazy/" .. name
 
+	if vim.fn.isdirectory(path) == 0 then
+		print(name .. ": installing to " .. vim.fn.stdpath("data") .. "/lazy/" .. "...")
+
+		vim.fn.system {"git", "clone", url, path}
+		if ref then
+			vim.fn.system {"git", "-C", path, "checkout", ref}
+		end
+
+		vim.cmd "redraw"
+		print(name .. ": finished installing")
+	end
+	vim.opt.runtimepath:prepend(path)
+end
+
+-- bootstrap tangerine/hibiscus
+bootstrap("https://github.com/udayvir-singh/tangerine.nvim", "v2.4")
+bootstrap("https://github.com/udayvir-singh/hibiscus.nvim")
 require "tangerine".setup {}
+
