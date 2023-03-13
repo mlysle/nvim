@@ -1,4 +1,5 @@
-local function bootstrap(url, ref)
+local function bootstrap(user, repo)
+	local url = ("https://github.com/" .. user .. "/" .. repo)
 	local name = url:gsub(".*/", "")
 	local path = vim.fn.stdpath("data") .. "/lazy/" .. name
 
@@ -6,9 +7,6 @@ local function bootstrap(url, ref)
 		print(name .. ": installing to " .. vim.fn.stdpath("data") .. "/lazy/" .. "...")
 
 		vim.fn.system {"git", "clone", url, path}
-		if ref then
-			vim.fn.system {"git", "-C", path, "checkout", ref}
-		end
 
 		vim.cmd "redraw"
 		print(name .. ": finished installing")
@@ -16,8 +14,17 @@ local function bootstrap(url, ref)
 	vim.opt.runtimepath:prepend(path)
 end
 
--- bootstrap tangerine/hibiscus
-bootstrap("https://github.com/udayvir-singh/tangerine.nvim", "v2.4")
-bootstrap("https://github.com/udayvir-singh/hibiscus.nvim")
-require "tangerine".setup {}
+-- bootstrap lazy
+bootstrap("folke", "lazy.nvim")
 
+-- bootstrap tangerine
+bootstrap("udayvir-singh", "tangerine.nvim")
+
+require "tangerine".setup({
+	compiler = {
+		hooks = {"onsave", "oninit"}
+	}
+})
+
+-- I'm not sure but I think this will start init.fnl
+require("init")
