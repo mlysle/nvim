@@ -26,5 +26,4 @@ require "tangerine".setup({
 	}
 })
 
--- I'm not sure but I think this will start init.fnl
 require("init")
