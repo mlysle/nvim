@@ -9,20 +9,19 @@ require('neorg').setup {
 				end,
 			},
 		},
-		["core.norg.concealer"] = {},
-		["core.norg.manoeuvre"] = {},
+		["core.concealer"] = {},
 		--		["core.gtd.base"] = {
 		--			config = {
 		--        workspace = "gtd",
 		--		},
 		--	},
 		["core.integrations.telescope"] = {},
-		["core.norg.completion"] = {
+		["core.completion"] = {
 			config = {
 				engine = 'nvim-cmp',
 			}
 		},
-		["core.norg.journal"] = {
+		["core.journal"] = {
 			config = {
 				workspace = 'notes',
 				strategy = 'flat',
@@ -30,7 +29,7 @@ require('neorg').setup {
 		},
 		-- ["core.presenter"] = {},
 		-- ["core.integrations.telescope"] = {},
-		["core.norg.dirman"] = {
+		["core.dirman"] = {
 			config = {
 				workspaces = {
 					notes = "~/doc/neorg/notes",
