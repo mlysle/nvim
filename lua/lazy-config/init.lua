@@ -51,9 +51,11 @@ require('lazy').setup({
 	},
 	'numToStr/Comment.nvim',
 	'monaqa/dial.nvim',
+	'MunifTanjim/nui.nvim',
 	{
 		'arsham/indent-tools.nvim',
 		dependencies = 'arsham/arshlib.nvim',
+		config = true,
 	},
 	'jose-elias-alvarez/null-ls.nvim',
 	-- for SICP
