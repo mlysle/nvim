@@ -1,4 +1,5 @@
 require('options')
+vim.g.racket_hash_lang_dict = { ['simply-scheme'] = 'racket' }
 require('lazy-config')
 require('colors')
 require('treesitter-config')
@@ -14,6 +15,7 @@ require('null-ls-config')
 require('neo-minimap-config')
 require('oil-config')
 require('ts-rainbow-config')
-require('mappings')
+require('which-key-config')
+require('keybindings')
 -- vim.g["aniseed#env"] = { module = "init", compile = true }
 -- require('aniseed.env').init()

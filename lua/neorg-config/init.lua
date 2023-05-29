@@ -4,8 +4,8 @@ require('neorg').setup {
 		["core.keybinds"] = {
 			config = {
 				hook = function(keybinds)
-					keybinds.map_event("norg", "n", "<C-s>", "core.integrations.telescope.find_linkable")
-					keybinds.map_event("norg", "i", "<C-l>", "core.integrations.telescope.insert_link")
+					--keybinds.map_event("norg", "n", "<C-s>", "core.integrations.telescope.find_linkable")
+					--keybinds.map_event("norg", "i", "<C-l>", "core.integrations.telescope.insert_link")
 				end,
 			},
 		},
@@ -15,7 +15,6 @@ require('neorg').setup {
 		--        workspace = "gtd",
 		--		},
 		--	},
-		["core.integrations.telescope"] = {},
 		["core.completion"] = {
 			config = {
 				engine = 'nvim-cmp',
