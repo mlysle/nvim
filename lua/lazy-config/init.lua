@@ -35,10 +35,8 @@ require('lazy').setup({
 	},
 	{
 		'nvim-neorg/neorg',
-		dependencies = {
-			{ 'nvim-lua/plenary.nvim' },
-			{ 'nvim-neorg/neorg-telescope' },
-		},
+		build = ":Neorg sync-parsers",
+		dependencies = 'nvim-lua/plenary.nvim',
 	},
 	{
 		'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -69,4 +67,17 @@ require('lazy').setup({
 	'stevearc/oil.nvim',
 	'HiPhish/nvim-ts-rainbow2',
 	'udayvir-singh/tangerine.nvim',
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		init = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+		end,
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		}
+	}
 })
