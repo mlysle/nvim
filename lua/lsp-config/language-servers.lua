@@ -1,6 +1,13 @@
+require("mason").setup()
+require("mason-lspconfig").setup {
+	automatic_installation = true,
+}
+require("mason-null-ls").setup({
+	automatic_installation = true,
+})
+
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require('lspconfig')
-
 
 local on_attach = function(client, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
@@ -59,11 +66,11 @@ lspconfig['lua_ls'].setup {
 		},
 	},
 }
-lspconfig.java_language_server.setup {}
-lspconfig.racket_langserver.setup {
+
+lspconfig['racket_langserver'].setup {
 	on_attach = on_attach,
 }
 
-lspconfig.pyright.setup {
+lspconfig['pyright'].setup {
 	on_attach = on_attach,
 }

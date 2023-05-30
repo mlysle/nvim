@@ -13,9 +13,22 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
 	-- LSP
-	'williamboman/mason.nvim',
-	'williamboman/mason-lspconfig.nvim',
-	'neovim/nvim-lspconfig',
+	{
+		"williamboman/mason.nvim",
+		build = ":MasonUpdate"
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
+	},
+	{
+		"jay-babu/mason-null-ls.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			"williamboman/mason.nvim",
+			"jose-elias-alvarez/null-ls.nvim",
+		},
+	},
 	-- Completion
 	'hrsh7th/nvim-cmp',
 	'hrsh7th/cmp-nvim-lsp',
@@ -39,7 +52,8 @@ require('lazy').setup({
 		dependencies = 'nvim-lua/plenary.nvim',
 	},
 	{
-		'nvim-telescope/telescope.nvim', tag = '0.1.0',
+		'nvim-telescope/telescope.nvim',
+		tag = '0.1.0',
 		dependencies = 'nvim-lua/plenary.nvim',
 	},
 	{
