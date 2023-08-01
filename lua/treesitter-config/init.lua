@@ -2,21 +2,37 @@ local present, treesitter = pcall(require, "nvim-treesitter.configs")
 
 if not present then return end
 
-local options = {
-	ensure_installed = { "lua", "racket", "bash", "html", "norg", "norg_meta", "python", "r", "markdown", "yaml", "latex",
-		"css",
-		"scss", "vim", "help" },
-	auto_install = true,
+require 'nvim-treesitter.configs'.setup {
+	options = {
+		ensure_installed = {
+			"bash",
+			"css",
+			"help",
+			"html",
+			"fish",
+			"latex",
+			"lua",
+			"matlab",
+			"markdown",
+			"norg",
+			"norg_meta",
+			"python",
+			"r",
+			"racket",
+			"scss",
+			"vim",
+			"yaml",
+		},
+		auto_install = true,
 
-	indent = {
-		enable = true
+		indent = {
+			enable = true
+		},
+
+		highlight = {
+			enable = true,
+		},
 	},
-
-	highlight = {
-		enable = true,
-		additional_vim_regex_highlighting = { 'org' },
-	},
-
 	textobjects = {
 		select = {
 			enable = true,
@@ -45,4 +61,3 @@ local options = {
 		},
 	},
 }
-treesitter.setup(options)

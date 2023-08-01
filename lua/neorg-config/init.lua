@@ -1,20 +1,16 @@
 require('neorg').setup {
 	load = {
 		["core.defaults"] = {},
+		["core.concealer"] = {},
 		["core.keybinds"] = {
 			config = {
 				hook = function(keybinds)
 					--keybinds.map_event("norg", "n", "<C-s>", "core.integrations.telescope.find_linkable")
 					--keybinds.map_event("norg", "i", "<C-l>", "core.integrations.telescope.insert_link")
+					keybinds.remap_key("norg", "i", "<M-CR>", "<S-CR>")
 				end,
 			},
 		},
-		["core.concealer"] = {},
-		--		["core.gtd.base"] = {
-		--			config = {
-		--        workspace = "gtd",
-		--		},
-		--	},
 		["core.completion"] = {
 			config = {
 				engine = 'nvim-cmp',
