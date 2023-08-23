@@ -10,26 +10,17 @@ local luasnip = require("luasnip")
 local lspkind = require("lspkind")
 vim.opt.completeopt = "menuone,noselect"
 
---local cmp_window = require "cmp.utils.window"
---cmp_window.info_ = cmp_window.info
---cmp_window.info = function(self)
---	local info = self:info_()
---	info.scrollable = false
---	return info
---end
-
 local options = {
-	window = {
-		completion = {
-			winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
-		},
-		documentation = {
-		},
-	},
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)
 		end,
+	},
+	window = {
+		completion = {
+			completion = cmp.config.window.bordered(),
+			documentation = cmp.config.window.bordered(),
+		},
 	},
 	experimental = {
 		ghost_text = true,
@@ -94,11 +85,11 @@ local options = {
 		end, { "i", "s" }),
 	},
 	sources = {
+		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "neorg" },
-		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
-		{ name = "buffer", keyword_length = 5 },
+		{ name = "buffer",  keyword_length = 5 },
 		{ name = "path" },
 	},
 }

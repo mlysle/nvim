@@ -1,37 +1,32 @@
-local present, treesitter = pcall(require, "nvim-treesitter.configs")
-
-if not present then return end
-
 require 'nvim-treesitter.configs'.setup {
-	options = {
-		ensure_installed = {
-			"bash",
-			"css",
-			"help",
-			"html",
-			"fish",
-			"latex",
-			"lua",
-			"matlab",
-			"markdown",
-			"norg",
-			"norg_meta",
-			"python",
-			"r",
-			"racket",
-			"scss",
-			"vim",
-			"yaml",
-		},
-		auto_install = true,
+	ensure_installed = {
+		"bash",
+		"cpp",
+		"css",
+		"help",
+		"html",
+		"fish",
+		"latex",
+		"lua",
+		"matlab",
+		"markdown",
+		"norg",
+		"norg_meta",
+		"python",
+		"r",
+		"racket",
+		"scss",
+		"vim",
+		"yaml"
+	},
+	auto_install = true,
 
-		indent = {
-			enable = true
-		},
+	indent = {
+		enable = true,
+	},
 
-		highlight = {
-			enable = true,
-		},
+	highlight = {
+		enable = true,
 	},
 	textobjects = {
 		select = {

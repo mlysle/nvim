@@ -25,3 +25,4 @@ map("n", "<C-Down>", ":Neorg journal yesterday<CR>")
 
 map("n", "<F5>", ":!Rscript -e \"rmarkdown::render('%')\"<CR>")
 map("n", "--", require("oil").open, { desc = "Open parent directory" })
+--map("n", "<Leader>h", ":ClangdSwitchSourceHeader<CR>")
