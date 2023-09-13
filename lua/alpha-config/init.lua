@@ -9,7 +9,7 @@ dashboard.section.header.val = {
 	[[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
 }
 dashboard.section.buttons.val = {
-	dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
+	dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
 	dashboard.button("v", "  Settings", ":e $MYVIMRC| :cd %:p:h<CR>"),
 	dashboard.button("n", "󰠮  Start NEORG", ":NeorgStart<CR>:Neorg journal today<CR>"),
 	dashboard.button("q", "  Quit NVIM", ":qa<CR>"),
