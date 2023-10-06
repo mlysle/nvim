@@ -3,9 +3,11 @@ require 'nvim-treesitter.configs'.setup {
 		"bash",
 		"cpp",
 		"css",
+		"dockerfile",
 		"help",
 		"html",
 		"fish",
+		"gitignore",
 		"latex",
 		"lua",
 		"matlab",
@@ -36,23 +38,24 @@ require 'nvim-treesitter.configs'.setup {
 			lookahead = true,
 
 			keymaps = {
-				-- You can use the capture groups defined in textobjects.scm
 				["af"] = "@function.outer",
 				["if"] = "@function.inner",
 				["ac"] = "@conditional.outer",
 				["ic"] = "@conditional.inner",
+				["a="] = { query = "@assignment.outer", desc = "Select outer part of an assignment" },
+				["i="] = { query = "@assignment.inner", desc = "Select inner part of an assignment" },
+				["l="] = { query = "@assignment.lhs", desc = "Select left hand side of an assignment" },
+				["r="] = { query = "@assignment.rhs", desc = "Select right hand side of an assignment" },
 			},
-			-- You can choose the select mode (default is charwise 'v')
-			selection_modes = {
-				['@parameter.outer'] = 'v', -- charwise
-				['@function.outer'] = 'V', -- linewise
-				['@class.outer'] = '<c-v>', -- blockwise
-			},
-			-- If you set this to `true` (default is `false`) then any textobject is
-			-- extended to include preceding xor succeeding whitespace. Succeeding
-			-- whitespace has priority in order to act similarly to eg the built-in
-			-- `ap`.
-			include_surrounding_whitespace = true,
+		},
+	},
+	incremental_selection = {
+		enable = true,
+		keymaps = {
+			init_selection = "<C-space>",
+			node_incremental = "<C-space>",
+			scope_incremental = false,
+			node_decremental = "<bs>",
 		},
 	},
 }

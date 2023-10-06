@@ -70,6 +70,12 @@ require('lazy').setup({
 	'stevearc/oil.nvim',
 	'HiPhish/rainbow-delimiters.nvim',
 	'udayvir-singh/tangerine.nvim',
+	'ThePrimeagen/harpoon',
+	{
+		'akinsho/toggleterm.nvim',
+		version = "*",
+		config = true
+	},
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
