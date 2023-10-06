@@ -25,3 +25,5 @@ map("n", "<C-Down>", ":Neorg journal yesterday<CR>")
 
 map("n", "<F5>", ":!Rscript -e \"rmarkdown::render('%')\"<CR>")
 --map("n", "<Leader>h", ":ClangdSwitchSourceHeader<CR>")
+
+map("n", "x", '"_x')
