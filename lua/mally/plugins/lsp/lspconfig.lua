@@ -10,35 +10,37 @@ return {
 
 		local on_attach = function(client, bufnr)
 			-- Enable completion triggered by <c-x><c-o>
-			vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+			vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 			local bufopts = { noremap = true, silent = true, buffer = bufnr }
-			vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+			vim.keymap.set("n", "<space>u", function()
+				vim.lsp.buf.format({ async = true })
+			end, bufopts)
 
-			vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-			vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-			vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-			vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-			vim.keymap.set('n', 'go', vim.lsp.buf.type_definition, bufopts)
-			vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-			vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, bufopts)
-			vim.keymap.set('n', '<F4>', vim.lsp.buf.code_action, bufopts)
-			vim.keymap.set('x', '<F4>', vim.lsp.buf.range_code_action, bufopts)
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
+			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
+			vim.keymap.set("n", "go", vim.lsp.buf.type_definition, bufopts)
+			vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+			vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, bufopts)
+			vim.keymap.set("n", "<F4>", vim.lsp.buf.code_action, bufopts)
+			vim.keymap.set("x", "<F4>", vim.lsp.buf.range_code_action, bufopts)
 		end
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-		lspconfig['lua_ls'].setup {
+		lspconfig["lua_ls"].setup({
 			on_attach = on_attach,
 			capabilities = capabilities,
 			settings = {
 				Lua = {
 					runtime = {
 						-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-						version = 'LuaJIT',
+						version = "LuaJIT",
 					},
 					diagnostics = {
 						-- Get the language server to recognize the `vim` global
-						globals = { 'vim' },
+						globals = { "vim" },
 					},
 					workspace = {
 						-- Make the server aware of Neovim runtime files
@@ -51,25 +53,28 @@ return {
 					},
 				},
 			},
-		}
+		})
 
-		lspconfig['racket_langserver'].setup {
+		lspconfig["racket_langserver"].setup({
 			on_attach = on_attach,
-		}
+		})
 
-		lspconfig['pyright'].setup {
+		lspconfig["pyright"].setup({
 			on_attach = on_attach,
-		}
+		})
 
-		lspconfig['bashls'].setup {
+		lspconfig["bashls"].setup({
 			on_attach = on_attach,
-		}
-		lspconfig['csharp_ls'].setup {
+		})
+		lspconfig["csharp_ls"].setup({
 			on_attach = on_attach,
 			capabilities = capabilities,
-		}
-		lspconfig['clangd'].setup {
+		})
+		lspconfig["clangd"].setup({
 			on_attach = on_attach,
-		}
+		})
+		lspconfig["texlab"].setup({
+			on_attach = on_attach,
+		})
 	end,
 }

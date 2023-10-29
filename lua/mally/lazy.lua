@@ -11,7 +11,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("mally.plugins")
+--require("lazy").setup("mally.plugins", "mally.plugins.lsp")
+require("lazy").setup({ { import = "mally.plugins" }, { import = "mally.plugins.lsp" } })
 
 
 --require('lazy').setup({
