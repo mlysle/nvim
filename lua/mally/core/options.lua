@@ -29,9 +29,6 @@ vim.opt.conceallevel = 2
 -- vim.opt.concealcursor = 'n'
 vim.opt.signcolumn = 'no'
 
--- auto-format
-vim.cmd('autocmd BufWritePre *.lua,*.py lua vim.lsp.buf.format()')
-
 -- 500ms timeout (recommended by whick-key)
 vim.opt.timeoutlen = 500
 
