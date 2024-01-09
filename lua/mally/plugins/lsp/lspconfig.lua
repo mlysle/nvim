@@ -8,13 +8,10 @@ return {
 	config = function()
 		local lspconfig = require("lspconfig")
 
-		local on_attach = function(client, bufnr)
+		local on_attach = function(_, bufnr)
 			-- Enable completion triggered by <c-x><c-o>
 			vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 			local bufopts = { noremap = true, silent = true, buffer = bufnr }
-			vim.keymap.set("n", "<space>u", function()
-				vim.lsp.buf.format({ async = true })
-			end, bufopts)
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
@@ -36,6 +33,7 @@ return {
 				Lua = {
 					runtime = {
 						-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+						enable = true,
 						version = "LuaJIT",
 					},
 					diagnostics = {

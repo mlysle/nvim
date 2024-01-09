@@ -33,3 +33,5 @@ vim.opt.signcolumn = 'no'
 vim.opt.timeoutlen = 500
 
 vim.opt.termguicolors = true
+-- recognize simply-scheme as racket
+vim.g.racket_hash_lang_dict = { ['simply-scheme'] = 'racket' }
