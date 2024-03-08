@@ -22,6 +22,21 @@ return {
 			vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, bufopts)
 			vim.keymap.set("n", "<F4>", vim.lsp.buf.code_action, bufopts)
 			vim.keymap.set("x", "<F4>", vim.lsp.buf.range_code_action, bufopts)
+
+			vim.api.nvim_create_autocmd("CursorHold", {
+				buffer = bufnr,
+				callback = function()
+					local opts = {
+						focusable = false,
+						close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+						border = 'rounded',
+						source = 'always',
+						prefix = ' ',
+						scope = 'cursor',
+					}
+					vim.diagnostic.open_float(nil, opts)
+				end
+			})
 		end
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
