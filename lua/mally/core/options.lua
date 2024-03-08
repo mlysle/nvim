@@ -27,7 +27,6 @@ vim.api.nvim_exec(
 )
 vim.opt.conceallevel = 2
 -- vim.opt.concealcursor = 'n'
-vim.opt.signcolumn = 'no'
 
 -- 500ms timeout (recommended by whick-key)
 vim.opt.timeoutlen = 500
