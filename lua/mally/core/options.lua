@@ -34,3 +34,7 @@ vim.opt.timeoutlen = 500
 vim.opt.termguicolors = true
 -- recognize simply-scheme as racket
 vim.g.racket_hash_lang_dict = { ['simply-scheme'] = 'racket' }
+
+-- Always show the signcolumn
+-- Prevents the screen from shifting when warnings/errors appear
+vim.o.signcolumn = "yes"
