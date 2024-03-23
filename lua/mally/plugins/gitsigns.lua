@@ -5,8 +5,8 @@ return {
 		require('gitsigns').setup()
 		local wk = require("which-key")
 		wk.register({
-			["<leader>h"] = { name = "+git" },
-			["<leader>hS"] = { "<cmd>Gitsigns stage_buffer<cr>", "Stage File" },
+			["<leader>g"] = { name = "+git" },
+			["<leader>ga"] = { "<cmd>Gitsigns stage_buffer<cr>", "Stage File" },
 		})
 	end,
 }

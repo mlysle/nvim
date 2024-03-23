@@ -8,20 +8,29 @@ return {
 	config = function()
 		local lspconfig = require("lspconfig")
 
-		local on_attach = function(_, bufnr)
-			-- Enable completion triggered by <c-x><c-o>
-			vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-			local bufopts = { noremap = true, silent = true, buffer = bufnr }
+		local map = vim.keymap.set
+		local opts = { noremap = true, silent = true }
 
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-			vim.keymap.set("n", "go", vim.lsp.buf.type_definition, bufopts)
-			vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-			vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, bufopts)
-			vim.keymap.set("n", "<F4>", vim.lsp.buf.code_action, bufopts)
-			vim.keymap.set("x", "<F4>", vim.lsp.buf.range_code_action, bufopts)
+		local on_attach = function(_, bufnr)
+			opts.buffer = bufnr
+
+			opts.desc = "LSP Go to Declaration"
+			map("n", "gD", vim.lsp.buf.declaration, opts)
+
+			opts.desc = "LSP Go to Definition"
+			map("n", "gd", vim.lsp.buf.definition, opts)
+
+			opts.desc = "LSP Hover Information"
+			map("n", "K", vim.lsp.buf.hover, opts)
+
+			opts.desc = "Lsp Go to implementation"
+			map("n", "gi", vim.lsp.buf.implementation, opts)
+
+			opts.desc = "LSP Rename"
+			map("n", "gr", vim.lsp.buf.rename, opts)
+
+			opts.desc = "LSP Show References"
+			map("n", "gR", vim.lsp.buf.references, opts)
 
 			vim.api.nvim_create_autocmd("CursorHold", {
 				buffer = bufnr,
@@ -57,7 +66,7 @@ return {
 					},
 					workspace = {
 						-- Make the server aware of Neovim runtime files
-						library = vim.api.nvim_get_runtime_file("", true),
+						library = { vim.api.nvim_get_runtime_file("", true), "~/doc/fortwars/fortwars_server/garrysmod/gamemodes/" },
 						checkThirdParty = false,
 					},
 					-- Do not send telemetry data containing a randomized but unique identifier

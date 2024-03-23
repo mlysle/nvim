@@ -5,9 +5,11 @@ return {
 		dependencies = {
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			"jay-babu/mason-nvim-dap.nvim",
 		},
 		config = function()
 			require("mason").setup()
+			require("mason-nvim-dap").setup()
 			require("mason-lspconfig").setup({
 				ensure_installed = {},
 				automatic_installation = true,
@@ -24,6 +26,7 @@ return {
 					"pylint", -- python linter
 					"eslint_d", -- js linter
 					"clang-format",
+					"clangd",
 					"texlab",
 				},
 			})
