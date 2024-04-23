@@ -14,7 +14,6 @@ map('i', '<M-p>', '<C-r><C-o>')
 map("n", "<C-h>", "<C-w>h")
 map("n", "<C-j>", "<C-w>j")
 map("n", "<C-k>", "<C-w>k")
-
 map("n", "<C-l>", "<C-w>l")
 
 map("v", "J", ":m '>+1<CR>gv=gv", { silent = true })

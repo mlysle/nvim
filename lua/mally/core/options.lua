@@ -10,6 +10,8 @@ vim.opt.tabstop = 2
 vim.opt.undofile = true
 vim.opt.title = true
 
+vim.opt.backup = false
+
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
@@ -38,3 +40,6 @@ vim.g.racket_hash_lang_dict = { ['simply-scheme'] = 'racket' }
 -- Always show the signcolumn
 -- Prevents the screen from shifting when warnings/errors appear
 vim.o.signcolumn = "yes"
+
+--vim.o.foldmethod = 'expr'
+--vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
